@@ -1,0 +1,6 @@
+# ignore target directory
+target/
+
+#ignore .idea and .DS_Store
+.DS_Store
+.idea
