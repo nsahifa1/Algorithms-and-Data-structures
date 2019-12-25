@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.nabilsahifa.algorithms</groupId>
-    <artifactId>algorithms</artifactId>
+    <artifactId>algorithms-DS</artifactId>
     <version>1.0</version>
 
     <dependencies>
@@ -56,5 +56,50 @@
             <version>3.9</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>add-src-directories</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>com/nsahifa/algorithms/dynamic-programming</source>
+                                <source>com/nsahifa/algorithms/sorting</source>
+                                <source>com/nsahifa/algorithms/mathematics</source>
+                                <source>com/nsahifa/algorithms/graph</source>
+                                <source>com/nsahifa/data-structures</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>add-test-directories</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>tests/com/nsahifa/algorithms/dp</source>
+                                <source>tests/com/nsahifa/algorithms/mathematics</source>
+                                <source>tests/com/nsahifa/algorithms/sorting</source>
+                                <source>tests/com/nsahifa/algorithms/graph</source>
+                                <source>tests/com/nsahifa/data-structures</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>
