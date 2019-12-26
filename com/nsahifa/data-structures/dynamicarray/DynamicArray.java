@@ -1,3 +1,8 @@
+/**
+ * Dynamic array implementation
+ * @author : nabil sahifa
+ * @email : nabilsahifa@gmail.com
+ */
 package dynamicarray;
 
 import java.util.Iterator;
@@ -95,6 +100,7 @@ public class DynamicArray<T> implements Iterable<T> {
         return indexOf(obj) != -1;
     }
 
+    // TODO : check for concurrence modification error
     public Iterator<T> iterator() {
         return new Iterator<T>() {
             int index = 0;
