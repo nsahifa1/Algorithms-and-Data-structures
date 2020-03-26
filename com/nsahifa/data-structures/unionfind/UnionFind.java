@@ -74,6 +74,7 @@ public class UnionFind {
         return nbrComponenents;
     }
 
+    // function that merges two sets
     public void merge (int u, int v) {
         u = find(u);
         v = find(v);
