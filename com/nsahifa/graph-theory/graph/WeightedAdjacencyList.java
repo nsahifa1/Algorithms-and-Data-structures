@@ -34,6 +34,11 @@ public class WeightedAdjacencyList {
         return V;
     }
 
+    // getter of the adjacency list
+    public List<Edge>[] getAdjList() {
+        return adjList;
+    }
+
     // add a directed edge into the graph
     public void addDirectedEdge(int source, int destination, int weight){
         Edge edge = new Edge(source, destination, weight);

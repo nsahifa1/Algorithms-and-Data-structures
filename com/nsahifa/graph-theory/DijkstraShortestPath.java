@@ -1,6 +1,12 @@
 /**
- * An implementation of the Dijkstra's Single Source Shortest Path
- * algorithm for graphs with non-negative edge weights
+ * Lazy implementation of the Dijkstra's Single Source Shortest Path
+ * This algorithm is for graphs with non-negative edge weights
+ * This version of the algorithm inserts dupicate (key, value) pairs
+ * in our PQ because it's more efficient to insert a new pair in
+ * O(log(V)) than it is to update an existing key's value in O(V)
+ * There exists an eager version of the Dijkstra's algorithm that
+ * uses an Indexed Priority Queue (IPQ) that supports efficient
+ * values updating in O(log(V))
  * @author : nabil sahifa
  * @email : nabilsahifa@gmail.com
  */
@@ -82,6 +88,14 @@ public class DijkstraShortestPath {
                     prev[child.getDestination()] = node.id;
                 }
             }
+
+            // The main idea for stopping early is that Dijkstra's
+            // algorithm processes each next most promising node
+            // in order. So if the destination node has been visited
+            // its shortest distance will not change as more
+            // future nodes are visited
+
+            // if (node.id == end) return dist[node.id];
         }
         return dist;
     }
