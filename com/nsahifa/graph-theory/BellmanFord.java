@@ -5,8 +5,9 @@
  * E is the number of edges and V is the number of vertices
  * Bellman-Ford can be used to detect negatives cycles
  * and determine where they occur
+ * @author : nabil sahifa
+ * @email : nabilsahifa@gmail.com
  */
-
 import graph.Edge;
 import graph.WeightedAdjacencyList;
 
@@ -50,7 +51,7 @@ public class BellmanFord {
 
             for (List<Edge> edges : graph.getAdjList()){
                 for (Edge edge : edges){
-                    if (dist[edge.getSource()] + edge.getWeight() < dist[edge.getDestination()){
+                    if (dist[edge.getSource()] + edge.getWeight() < dist[edge.getDestination()]){
                         dist[edge.getDestination()] = Double.NEGATIVE_INFINITY;
                         isNegativeCycle = true;
                     }
