@@ -51,16 +51,17 @@ public class TopologicalSort {
     // Single Source Shortest Path in a DAG
     // We start by getting an ordering of the vertices
     // based on the topological sorting og the graph
-    public Integer[] shortestPathDAG(WeightedAdjacencyList graph, int start){
-        Integer[] dist = new Integer[graph.getV()];
+    public Double[] shortestPathDAG(WeightedAdjacencyList graph, int start){
+        Double[] dist = new Double[graph.getV()];
         List<Integer> topoSort = topoSort(graph);
-        dist[start] = 0;
+
+        dist[start] = 0.0;
 
         for (int i=0;i<topoSort.size();++i){
             if (dist[i]!=null){
                 for (Edge child : graph.adj(i)){
 
-                    int newDist = dist[i] + child.getWeight();
+                    Double newDist = dist[i] + child.getWeight();
 
                     // We perform a relaxation step by updating
                     // the distance to the child
