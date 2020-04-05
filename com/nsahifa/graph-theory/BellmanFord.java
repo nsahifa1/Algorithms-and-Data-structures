@@ -23,12 +23,13 @@ public class BellmanFord {
         int V = graph.getV();
 
         double[] dist = new double[V];
+        dist[start] = 0;
         Arrays.fill(dist, Double.POSITIVE_INFINITY);
 
         for (int i=0;i<=V-1;++i){
 
-            // After i iteration, all shortest paths with at most i edges will be found
-            // Some shortest paths with more than i edges will also be found
+            // After k iteration, all shortest paths with at most k edges will be found
+            // Some shortest paths with more than k edges will also be found
 
             // V-1 is the maximal length of a shortest path in the graph
 
