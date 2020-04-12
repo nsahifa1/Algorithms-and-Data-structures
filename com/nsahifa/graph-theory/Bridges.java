@@ -11,6 +11,9 @@ public class Bridges {
      * The low-link value of a node is defined as the smallest id reachable
      * from that node when doing a DFS (including itself)
      *
+     * Note : The low-link value depends on where the DFS starts and
+     * which edges are visited
+     *
      * Bridges will be found where the id of the node your edge is
      * coming from is less than the low link value of the node your edge
      * is going to id(e.from) < lowlink(e.to)
@@ -84,5 +87,4 @@ public class Bridges {
 
         return bridges;
     }
-
 }
