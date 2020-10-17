@@ -72,11 +72,13 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>com/nsahifa/algorithms/dynamic-programming</source>
                                 <source>com/nsahifa/algorithms/sorting</source>
+                                <source>com/nsahifa/algorithms/dp</source>
                                 <source>com/nsahifa/algorithms/mathematics</source>
+                                <source>com/nsahifa/algorithms/strings</source>
                                 <source>com/nsahifa/algorithms/graph</source>
                                 <source>com/nsahifa/data-structures</source>
+
                             </sources>
                         </configuration>
                     </execution>
