@@ -1,7 +1,7 @@
 /**
  * Lazy implementation of the Dijkstra's Single Source Shortest Path
  * This algorithm is for graphs with non-negative edge weights
- * This version of the algorithm inserts dupicate (key, value) pairs
+ * This version of the algorithm inserts duplicate (key, value) pairs
  * in our PQ because it's more efficient to insert a new pair in
  * O(log(V)) than it is to update an existing key's value in O(V)
  * There exists an eager version of the Dijkstra's algorithm that
@@ -42,7 +42,7 @@ public class DijkstraShortestPath {
 
     // Dijkstra algorithm applied to DAG graph
     // Return an array containing dist to each node from start
-    // Complexity : O(E*log(V))
+    // Complexity : O((E+V)*log(V))
     // E : the number of edges / V : the number of vertices
     public double[] dijkstraSSSP(WeightedAdjacencyList graph, int start){
 
@@ -62,6 +62,7 @@ public class DijkstraShortestPath {
         PriorityQueue<Node> pq = new PriorityQueue<Node>(2*V, comparator);
         pq.add(new Node(start, 0));
 
+
         while (!pq.isEmpty()){
             Node node = pq.poll();
             visited[node.id] = true;
@@ -69,7 +70,7 @@ public class DijkstraShortestPath {
             // We have already found a better path routing
             // through others nodes before we got
             // to processing this node
-            if (dist[node.id] > node.dist) continue;
+            if (dist[node.id] < node.dist) continue;
 
             for (Edge child : graph.adj(node.id)){
 

@@ -26,35 +26,56 @@ public class BellmanFord {
         dist[start] = 0;
         Arrays.fill(dist, Double.POSITIVE_INFINITY);
 
-        for (int i=0;i<=V-1;++i){
+        boolean relaxedEdge = true;
+
+        for (int i=0;i<V-1 && relaxedEdge;++i){
 
             // After k iteration, all shortest paths with at most k edges will be found
             // Some shortest paths with more than k edges will also be found
 
             // V-1 is the maximal length of a shortest path in the graph
+            // otherwise the path would be a cycle
 
+            // Optimization : if in one iteration no relaxation yields any improvement,
+            // it means that we already found all shortest paths for all nodes
+
+            // important note : The edges do not need to be processed in any specific order
+            // the distance array is the same after relaxing the edges (V-1) times
+            relaxedEdge = false;
             for (List<Edge> edges : graph.getAdjList()){
                 for (Edge edge : edges){
-                    if (dist[edge.getSource()] + edge.getWeight() < dist[edge.getDestination()])
 
-                        // Relax the edge by the new weight
-                        dist[edge.getDestination()] = dist[edge.getSource()] + edge.getWeight();
+                    // This verification is needed only if the graph contains negative weight edges
+                    if (dist[edge.getSource()] != Double.POSITIVE_INFINITY){
+                        if (dist[edge.getSource()] + edge.getWeight() < dist[edge.getDestination()]){
+                            // Relax the edge by the new weight
+                            dist[edge.getDestination()] = dist[edge.getSource()] + edge.getWeight();
+
+                            relaxedEdge = true;
+                        }
+                    }
                 }
             }
         }
 
         // We run the algorithm a second time to detect negative cycles
+        // A negative cycle has occurred if we can find a better path
+        // beyond the optimal solution
+
+        // If a node is part of a negative cycle then the minimum cost
+        // for that node is set to Double.NEGATIVE_INFINITY
+
         // In the dist table we do not distinguish between nodes which are
         // directly in negative cycle and nodes which are reachable by negative cycles
-        boolean isNegativeCycle = true;
-        for (int i=0;i<V-1;++i){
-            isNegativeCycle = false;
+        relaxedEdge = true;
+        for (int i=0;i<V-1 && relaxedEdge;++i){
+            relaxedEdge = false;
 
             for (List<Edge> edges : graph.getAdjList()){
                 for (Edge edge : edges){
                     if (dist[edge.getSource()] + edge.getWeight() < dist[edge.getDestination()]){
                         dist[edge.getDestination()] = Double.NEGATIVE_INFINITY;
-                        isNegativeCycle = true;
+                        relaxedEdge = true;
                     }
                 }
             }
