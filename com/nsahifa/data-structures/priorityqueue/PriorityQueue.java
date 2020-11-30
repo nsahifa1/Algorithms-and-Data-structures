@@ -182,12 +182,15 @@ public class PriorityQueue<T extends Comparable<T> > {
     public boolean remove(T elem){
         if (elem == null) return false;
 
+        // Get the position of the elem
+        // in the heap
         Integer index = mapGet(elem);
+
         if (index != null) removeAt(index);
         return index != null;
     }
 
-    private T removeAt(int i) {
+    private T removeAt(int i){
         if (isEmpty()) return null;
 
         T node = heap.get(i);
@@ -196,10 +199,14 @@ public class PriorityQueue<T extends Comparable<T> > {
         // swap the node at i and the last node
         swap(i, heapSize);
 
+        // delete the last node from the heap
         heap.set(heapSize, null);
+
+        // Remove the index from indexTree[node] in O(log(n))
         mapRemove(node, heapSize);
 
         // if node is last element
+        // No operation is needed to restore the heap invariant
         if (i==heapSize) return node;
 
         T elem = heap.get(i);
@@ -210,7 +217,6 @@ public class PriorityQueue<T extends Comparable<T> > {
             // perform a swim after checking
             swim(i);
         }
-
         return node;
     }
 
@@ -276,7 +282,6 @@ public class PriorityQueue<T extends Comparable<T> > {
             set1.remove(index1);
             set1.add(index1);
         }
-
         if (set2 == null){
             set2 = new TreeSet<Integer>();
             set2.add(index1);

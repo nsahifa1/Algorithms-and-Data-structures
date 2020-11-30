@@ -76,9 +76,8 @@
                                 <source>com/nsahifa/algorithms/dp</source>
                                 <source>com/nsahifa/algorithms/mathematics</source>
                                 <source>com/nsahifa/algorithms/strings</source>
-                                <source>com/nsahifa/algorithms/graph</source>
                                 <source>com/nsahifa/data-structures</source>
-
+                                <source>com/nsahifa/graph-theory</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -93,8 +92,8 @@
                                 <source>tests/com/nsahifa/algorithms/dp</source>
                                 <source>tests/com/nsahifa/algorithms/mathematics</source>
                                 <source>tests/com/nsahifa/algorithms/sorting</source>
-                                <source>tests/com/nsahifa/algorithms/graph</source>
                                 <source>tests/com/nsahifa/data-structures</source>
+                                <source>tests/com/nsahifa/graph-theory</source>
                             </sources>
                         </configuration>
                     </execution>
