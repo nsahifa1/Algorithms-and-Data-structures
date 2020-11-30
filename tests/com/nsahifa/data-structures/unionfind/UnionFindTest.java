@@ -5,8 +5,6 @@ import static org.junit.Assert.*;
 
 public class UnionFindTest {
 
-    // TODO : Add more unit tests
-
     int sz = 5;
 
     @Test
@@ -40,5 +38,26 @@ public class UnionFindTest {
 
         assertTrue(uf.connected(0, 3));
         assertFalse(uf.connected(0, 1));
+    }
+
+    @Test
+    public void testSize() {
+        UnionFind uf = new UnionFind(sz);
+
+        assertEquals(uf.size(), 5);
+        assertEquals(uf.components(), 5);
+
+        uf.merge(1, 2);
+        assertEquals(uf.components(), 4);
+        assertEquals(uf.size(), 5);
+
+        uf.find(4);
+        assertEquals(uf.components(), 4);
+        assertEquals(uf.size(), 5);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructorException(){
+        new UnionFind(-2);
     }
 }

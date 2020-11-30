@@ -25,7 +25,7 @@ public class UnionFind {
     public UnionFind(int size){
         if (size <= 0) throw new IllegalArgumentException("Size cannot be negative");
 
-        this.size = this.nbrComponenents = 0;
+        this.size = this.nbrComponenents = size;
         sz = new int[size];
         id = new int[size];
 
@@ -70,7 +70,7 @@ public class UnionFind {
     }
 
     // Return the number of components
-    public int component(){
+    public int components(){
         return nbrComponenents;
     }
 
