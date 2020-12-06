@@ -12,8 +12,11 @@ public class AdjacencyList {
   // Number of vertices
   private int V;
 
-  // Adjacencey List
+  // Adjacency List
   private List<Integer>[] adjList;
+
+  // Transposed Adjacency List
+  private List<Integer>[] adjListTrans;
 
   // boolean array to track the visited nodes
   public boolean[] visited;
@@ -44,11 +47,17 @@ public class AdjacencyList {
   // Add directed edge between v and w
   public void addDirectedEdge(int v, int w) {
     adjList[v].add(w);
+    adjListTrans[w].add(v);
   }
 
-  // return the child of v from the adjacency list
+  // return the child nodes of v from the adjacency list
   public List<Integer> adj(int v) {
     return adjList[v];
+  }
+
+  // return the child nodes of v from the transposed adjacency list
+  public List<Integer> adjTrans(int v) {
+    return adjListTrans[v];
   }
 
   // method to unmark all vertices
