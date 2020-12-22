@@ -51,7 +51,7 @@ public class TopologicalSort {
     // Single Source Shortest Path in a DAG
     // We start by getting an ordering of the vertices
     // based on the topological sorting og the graph
-    public Double[] shortestPathDAG(WeightedAdjacencyList graph, int start){
+    public static Double[] shortestPathDAG(WeightedAdjacencyList graph, int start){
         Double[] dist = new Double[graph.getV()];
         List<Integer> topoSort = topoSort(graph);
 
