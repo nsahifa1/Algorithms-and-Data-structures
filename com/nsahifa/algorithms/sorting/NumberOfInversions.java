@@ -3,6 +3,9 @@
  *
  * Reminder : Let A[0 ... n-1] be an array of n distinct positive integers.
  * If i < j and A[i] > A[j] then the pair (i, j) is called an inversion of A
+ *
+ * the number of inversions is the required number of swaps of adjacent
+ * elements to sort a permutation
  */
 public class NumberOfInversions {
 
