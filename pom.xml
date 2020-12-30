@@ -78,6 +78,7 @@
                                 <source>com/nsahifa/algorithms/strings</source>
                                 <source>com/nsahifa/data-structures</source>
                                 <source>com/nsahifa/graph-theory</source>
+                                <source>com/nsahifa/trees</source>
                             </sources>
                         </configuration>
                     </execution>
